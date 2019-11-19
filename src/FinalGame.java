@@ -4,11 +4,23 @@ import java.util.Scanner;  //Import Scanner
 public class FinalGame {
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);         //Declare scanner object named "in".
+        Scanner in = new Scanner(System.in);         // Declare scanner object named "in".
         Random rand = new Random();                  // Declare random object
+        Location location [] = new Location[10];     // Declare an array of Location objects
 
-        boolean userPlaying = true;                  // Declares boolean value called userPlaying as true. The boolean will be used to indicate whether the user is playing (by guessing correct or still playing) or not (guessing wrong)
-        while (userPlaying) {
+        location[0] = new Location("library", 26);
+        location[1] = new Location("student house", 13);
+        location[2] = new Location("RUC bar", 06);
+        location[3] = new Location("canteen", 01);
+        location[4] = new Location("HumTek house", 05);
+        location[5] = new Location("FabLab", 06);
+        location[6] = new Location("SamBas house", 06);
+        location[7] = new Location("Solar pavilion", 01);
+        location[8] = new Location("the big auditorium", 26);
+        location[9] = new Location("the big auditorium", 13);
+        location[10] = new Location("student administration", 06);
+
+        while (true) {    //Start of while loop
             System.out.println("\n\t\t\t\t\tWelcome the RUC Trivia game!\n" +
                     "\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n" +
                     "\nYour goal is to find a secret word and deliver it to the student administration. \n" +
@@ -34,7 +46,7 @@ public class FinalGame {
 
             } else if (input.equals("2")) {
 
-                System.out.println("The next building I can see is x in building x. \n" +
+                System.out.println("The next building I can see is x in building number x. \n" +
                         "Should we go in and see whats inside?\n" +
                         "\n" +
                         " \n\t\t\t Press 1 : Enter\t\t Press 2: Continue walking\t\t Press 3: Exit RUC campus");
