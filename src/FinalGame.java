@@ -12,7 +12,7 @@ public class FinalGame {
         char[] gatheredLetters = new char[10];              // Declare char array with the size of 10 to store the letters
 
         /**
-         * The 2d String stores two arrays; question and answer.
+         * The two-dimensional String stores two arrays; question and answer.
          * For each string there are three sets of questions and answers.
          */
         String questions1[][] = {{"What is the last name of danish writer that wrote 'the little mermaid'", "Andersen"}, {"What nationality was the playwright Henrik Ibsen?", "Norwegian"}, {"His last name is Potter, what is his first?", "Harry"},};
@@ -59,7 +59,7 @@ public class FinalGame {
             // The for loop goes through the different locations the player can visit, and prints a list of all the options
             for (int locationIndex = 0; locationIndex < location.length - 1; locationIndex++) {
 
-                System.out.println(locationIndex + " " + location[locationIndex].getLocationName() + " " + location[locationIndex].getCategory());
+                System.out.println(locationIndex + " " + location[locationIndex].getLocationName() + " " + location[locationIndex].getCategory()+ " has been visited: " + location[locationIndex].getVisited());
 
             }
             System.out.print("\nSo, where do you want to go?\nType here: ");

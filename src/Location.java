@@ -8,6 +8,7 @@ public class Location {                                                         
     private String category;                                                             //
     private String[][] questions;                                                        // Declaring a two-dimensional String array named questions, to be able to hold both question and answer.
     private char secretLetter;
+    private boolean visited = false;
 
     public Location(String locationName, int locationNumber, String category, String[][] questions, char secretLetter) {    // Constructor for the Location class. Listing the different parameters used in the Location object.
         this.locationName = locationName;                                                // locationName initializes the field called houseName.
@@ -33,21 +34,19 @@ public class Location {                                                         
         return category;
     }
 
-    public String[][] getQuestions() {
-        return questions;
-    }                    // To be able to get the entire question array
-
-    public String getQuestion(int index) {
-        return questions[index][0];
-    }     // To be able to get a question given index
-
-    public String getAnswer(int index) {
-        return questions[index][1];
-    }       // To be able to get a answer given index
+    public boolean getVisited() {     //
+        return visited;
+    }
 
     // New method to get a question and answer, returns char
 
     public char answerRoomQuestion() {
+        if (visited) {
+            System.out.println("You have visited this room, please go to one of the rooms you haven't visited yet.");
+
+            return 0;                                                         // Exits method
+
+        }
         Random rand = new Random();                                           // Declare random object
         Scanner in = new Scanner(System.in);                                  // Declare scanner object named "in".
         int counter = 0;                                                      // Declare a counter which counts the players guesses
@@ -58,10 +57,11 @@ public class Location {                                                         
             String answer = in.nextLine();
             if (answer.equals(questions[random][1])) {                        // Compares the players answer to the correct answer
                 System.out.println("That is the correct answer! Good job. Which location do you want to visit now?");
+                visited = true;
                return secretLetter;
             } else {
                 System.out.println("Incorrect answer");
-
+                counter++;
             }
         }
         return 0;                                                              // If counter goes over 5, then return 0
