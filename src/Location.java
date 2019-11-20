@@ -17,10 +17,6 @@ public class Location {                                                         
         this.category = category;
         this.secretLetter = secretLetter;
     }
-    public Location(String locationName) {                                               // Constructor for student administration
-        this.locationName = locationName;                                                // locationName initializes the field called houseName.
-
-    }
 
     public String getLocationName() {
         return locationName;

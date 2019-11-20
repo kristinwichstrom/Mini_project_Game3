@@ -37,7 +37,6 @@ public class FinalGame {
         location[7] = new Location("Solar Pavilion", 0, "the solar system", questions8, secretLetter[7]);
         location[8] = new Location("The big auditorium", 00, "big things", questions9, secretLetter[8]);
         location[9] = new Location("The small auditorium", 44, "history", questions10, secretLetter[9]);
-        location[10] = new Location("Student administration");
 
         // When the program is started, the following block of text is printed.
         System.out.println("\n\t\t\t\t\tWelcome the RUC Trivia game!\n" +
@@ -56,10 +55,19 @@ public class FinalGame {
         while (true) {
             System.out.println("These are the letters you have gathered until now: " + Arrays.toString(gatheredLetters)); // Prints a toString representation of the gathered letters
 
-            // The for loop goes through the different locations the player can visit, and prints a list of all the options
-            for (int locationIndex = 0; locationIndex < location.length - 1; locationIndex++) {
 
-                System.out.println(locationIndex + " " + location[locationIndex].getLocationName() + " " + location[locationIndex].getCategory()+ " has been visited: " + location[locationIndex].getVisited());
+            String visited = "";
+            // The for loop goes through the different locations the player can visit, and prints a list of all the options
+            for (int locationIndex = 0; locationIndex < location.length; locationIndex++) {
+
+                //If player has visited the location, print next line
+                if (location[locationIndex].getVisited()) {
+                    visited = "You have visited this room";
+                }
+else {
+    visited = "You have not visited this room";
+                }
+                System.out.println(locationIndex + " " + location[locationIndex].getLocationName() + " " + location[locationIndex].getCategory()+ " has been visited: " + visited);
 
             }
             System.out.println("If you have gathered all the letters type '10' to go to the student administration and hand it in");
