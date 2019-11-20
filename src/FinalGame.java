@@ -55,7 +55,7 @@ public class FinalGame {
             // The for loop goes through the different locations the player can visit, and prints a list of all the options
             for (int locationIndex = 0; locationIndex < location.length - 1; locationIndex++) {
 
-                System.out.println(locationIndex + " " + location[locationIndex].getLocationName());
+                System.out.println(locationIndex + " " + location[locationIndex].getLocationName() + " " + location[locationIndex].getCategory());
 
             }
             System.out.print("\nSo, where do you want to go?\nType here: ");
@@ -88,6 +88,8 @@ public class FinalGame {
 
                 case 0:
                     System.out.println("Library");
+                    int random = rand.nextInt(location[input].getQuestions().length);
+                    System.out.println(location[input].getQuestion());     // Calls the location object library and gets
                     break;
                 case 1:
                     System.out.println("Student house");
