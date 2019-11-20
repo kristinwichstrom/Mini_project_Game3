@@ -1,6 +1,5 @@
 public class SecretWord {
 
-
-    private String [] words = {"Mozzarella", "Intermezzo", "Chimpanzzee", "Bamboozled", "Pickpocket", "Backgammon"};
+    public String [] words = {"Mozzarella", "Intermezzo", "Chimpanzzee", "Bamboozled", "Pickpocket", "Backgammon"};
 
 }

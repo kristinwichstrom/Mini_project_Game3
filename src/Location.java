@@ -1,20 +1,23 @@
-public class Location {                                                   // Creates class called Location
+public class Location {                                                                  // Creates class called Location
 
-    private String locationName;                                          // Declaring String parameter called LocationName
-    private int locationNumber;                                           // Declaring int parameter called buildingNumber
+    private String locationName;                                                         // Declaring String parameter called LocationName
+    private int locationNumber;                                                          // Declaring int parameter called buildingNumber
+    private String category;
+    private String [][] questions ;                                                      // Declaring a two-dimensional String array named questions, to be able to hold both question and answer.
 
-    public Location(String locationName, int locationNumber) {                   // Constructor for the Location class. Listing the different parameters used in the Location object.
-        this.locationName = locationName;                                 // house initializes the field called houseName. Here it is also common to use .this
-        this.locationNumber = locationNumber;                             // build initializes buildingNumber
+    public Location(String locationName, int locationNumber, String category, String [][] questions) {    // Constructor for the Location class. Listing the different parameters used in the Location object.
+        this.locationName = locationName;                                                // locationName initializes the field called houseName.
+        this.locationNumber = locationNumber;                                            // initializes buildingNumber
+        this.questions = questions;
+        this.category = category;
     }
-
-           // "library", "student house", "RUC bar", "canteen", "HumTek house", "FabLab",
-          //  "SamBas house", "Solar Pavilion", "the big auditorium", "the small auditorium"};
 
 
     public String getLocationName() { return locationName; }
 
     public int getLocationNumber() { return locationNumber; }
+
+    public String getCategory () { return category; }
 
 }
 
