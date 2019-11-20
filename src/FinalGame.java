@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;  // Import Random
 import java.util.Scanner;  //Import Scanner
 
@@ -6,6 +7,9 @@ public class FinalGame {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);         // Declare scanner object named "in".
         Location location[] = new Location[11];      // Declare an array of Location objects
+        SecretWord secretWord  = new SecretWord();   // Declare secretWord object
+        char[] secretLetter = secretWord.getRandomWord().toCharArray();  // Stores the random word as a char array
+        char[] gatheredLetters = new char[10];              // Declare char array with the size of 10 to store the letters
 
         /**
          * The 2d String stores two arrays; question and answer.
@@ -23,17 +27,17 @@ public class FinalGame {
         String questions10[][] = {{"Where did the ancient Olympic Games originate?", "Greece"}, {"Who was the first man to step on the moon (last name)?", "Armstrong"}, {"In which country are the ancient pyramids located?", "Egypt"}};
 
         // Declares the the individual location objects
-        location[0] = new Location("Library", 26, "literature", questions1);
-        location[1] = new Location("Student House", 14, "animals", questions2);
-        location[2] = new Location("RUC bar", 13, "drinks", questions3);
-        location[3] = new Location("Canteen", 01, "foods", questions4);
-        location[4] = new Location("HumTek House", 06, "technology", questions5);
-        location[5] = new Location("FabLab", 05, "science", questions6);
-        location[6] = new Location("SamBas House", 21, "geography", questions7);
-        location[7] = new Location("Solar Pavilion", 0, "the solar system", questions8);
-        location[8] = new Location("The big auditorium", 00, "big things", questions9);
-        location[9] = new Location("The small auditorium", 44, "history", questions10);
-        location[10] = new Location("Student administration", 23, "o", questions4);
+        location[0] = new Location("Library", 26, "literature", questions1, secretLetter[0]);
+        location[1] = new Location("Student House", 14, "animals", questions2, secretLetter[1]);
+        location[2] = new Location("RUC bar", 13, "drinks", questions3, secretLetter[2]);
+        location[3] = new Location("Canteen", 01, "foods", questions4, secretLetter[3]);
+        location[4] = new Location("HumTek House", 06, "technology", questions5, secretLetter[4]);
+        location[5] = new Location("FabLab", 05, "science", questions6, secretLetter[5]);
+        location[6] = new Location("SamBas House", 21, "geography", questions7, secretLetter[6]);
+        location[7] = new Location("Solar Pavilion", 0, "the solar system", questions8, secretLetter[7]);
+        location[8] = new Location("The big auditorium", 00, "big things", questions9, secretLetter[8]);
+        location[9] = new Location("The small auditorium", 44, "history", questions10, secretLetter[9]);
+        location[10] = new Location("Student administration");
 
         // When the program is started, the following block of text is printed.
         System.out.println("\n\t\t\t\t\tWelcome the RUC Trivia game!\n" +
@@ -50,6 +54,7 @@ public class FinalGame {
 
         // The game executes inside the while loop
         while (true) {
+            System.out.println("These are the letters you have gathered until now: " + Arrays.toString(gatheredLetters)); // Prints a toString representation of the gathered letters
 
             // The for loop goes through the different locations the player can visit, and prints a list of all the options
             for (int locationIndex = 0; locationIndex < location.length - 1; locationIndex++) {
@@ -59,13 +64,14 @@ public class FinalGame {
             }
             System.out.print("\nSo, where do you want to go?\nType here: ");
 
-            int input = -1; //spør brage
 
             /**
              * The try and catch statement is to prevent player from writing characters instead of numbers.
              * The try statement defines a block of code to be tested, which in this case .....
              * While the catch statement catches this exception if it's thrown. If exception is thrown, the println is printed.
              */
+            int input = -1;     // Input is set to -1, if the user writes an invalid character the if sentence will not catch it as an valid input
+
             try {
                 input = Integer.parseInt(in.nextLine());
             } catch (NumberFormatException error) {
@@ -78,43 +84,9 @@ public class FinalGame {
                 // If the user writes an invalid command continue with the loop
                 continue;
             }
-            /**
-             * The switch statement is used for comparing the input from user to the different cases. There are 10 cases, representing the different buildings.
-             * Once the case is located, and the input is correct, a the println is executed telling the player the name of the building that is chosen.
-             * The break statement tells Java to break out of the switch, and continue on in the program.
-             */
-            switch (input) {
-                case 0:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 1:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 2:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 3:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 4:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 5:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 6:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 8:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 9:
-                    location[input].answerRoomQuestion();
-                    break;
-                case 10:
-                    location[input].answerRoomQuestion();
-                    break;
-            }
+
+            gatheredLetters[input] = location[input].answerRoomQuestion();
+
 
         }
     }

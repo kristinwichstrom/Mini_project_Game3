@@ -6,15 +6,20 @@ public class Location {                                                         
     private String locationName;                                                         // Declaring String parameter called LocationName
     private int locationNumber;                                                          // Declaring int parameter called buildingNumber
     private String category;                                                             //
-    private String[][] questions;                                                      // Declaring a two-dimensional String array named questions, to be able to hold both question and answer.
+    private String[][] questions;                                                        // Declaring a two-dimensional String array named questions, to be able to hold both question and answer.
+    private char secretLetter;
 
-    public Location(String locationName, int locationNumber, String category, String[][] questions) {    // Constructor for the Location class. Listing the different parameters used in the Location object.
+    public Location(String locationName, int locationNumber, String category, String[][] questions, char secretLetter) {    // Constructor for the Location class. Listing the different parameters used in the Location object.
         this.locationName = locationName;                                                // locationName initializes the field called houseName.
         this.locationNumber = locationNumber;                                            // initializes buildingNumber
         this.questions = questions;
         this.category = category;
+        this.secretLetter = secretLetter;
     }
+    public Location(String locationName) {                                               // Constructor for student administration
+        this.locationName = locationName;                                                // locationName initializes the field called houseName.
 
+    }
 
     public String getLocationName() {
         return locationName;
@@ -40,24 +45,25 @@ public class Location {                                                         
         return questions[index][1];
     }       // To be able to get a answer given index
 
-    // New method to get a question and answer
+    // New method to get a question and answer, returns char
 
-    public void answerRoomQuestion() {
+    public char answerRoomQuestion() {
         Random rand = new Random();                                           // Declare random object
         Scanner in = new Scanner(System.in);                                  // Declare scanner object named "in".
         int counter = 0;                                                      // Declare a counter which counts the players guesses
-        System.out.println("Library");
+        System.out.println(locationName);
         while (counter <= 5) {
             int random = rand.nextInt(questions.length);                      // Generates a random integer between 0-2
             System.out.println(questions[random][0]);                         // Prints a random question
             String answer = in.nextLine();
-            if (in.equals(questions[random][1])) {                            // Compares the players answer to the correct answer
-                System.out.println("That is the correct answer! Good job.");
-                break;                                                       // Breaks out of while loop
+            if (answer.equals(questions[random][1])) {                        // Compares the players answer to the correct answer
+                System.out.println("That is the correct answer! Good job. Which location do you want to visit now?");
+               return secretLetter;
             } else {
                 System.out.println("Incorrect answer");
 
             }
         }
+        return 0;                                                              // If counter goes over 5, then return 0
     }
 }
