@@ -62,6 +62,7 @@ public class FinalGame {
                 System.out.println(locationIndex + " " + location[locationIndex].getLocationName() + " " + location[locationIndex].getCategory()+ " has been visited: " + location[locationIndex].getVisited());
 
             }
+            System.out.println("If you have gathered all the letters type '10' to go to the student administration and hand it in");
             System.out.print("\nSo, where do you want to go?\nType here: ");
 
 
@@ -77,24 +78,33 @@ public class FinalGame {
             } catch (NumberFormatException error) {
                 System.out.println("\nPlease only write integers.");
             }
-            // If statement checks whether the number is the given ones (between 0 and 9)
-            if (input < 0 || input > 10) {
+            // If statement checks whether the number is the given ones (between 0 and 10)
+            if (input < 0 || input > 11) {
                 System.out.println("\nThis an invalid command, please try again.");
 
                 // If the user writes an invalid command continue with the loop
                 continue;
             }
 
-            gatheredLetters[input] = location[input].answerRoomQuestion();
+            if (input == 10) {
 
+                if (Arrays.equals(gatheredLetters, secretLetter)) {
+                    System.out.println("Congratulats you have now won the game! ");
+                    System.out.println("The secret word was " + secretWord);
+                    System.exit(0);                 // Exits program
+                }
+                else {
+                    System.out.println("You have not gathered all the letters, please visit the remaining rooms.");
+                }
+            }
+            else {
+                gatheredLetters[input] = location[input].answerRoomQuestion();
+            }
 
         }
     }
 }
 
 
-//System.out.println("That is correct! Good job. Which building do you want to go to now?").
 //System.out.println("Welcome to the student administration building. Do you have the secret word?" + "\nType here: )
 //If (input == ) {
-//System.out.println ("Congratulations! You have found the secret word!. Do You want to play again? Y/N?
-//}
