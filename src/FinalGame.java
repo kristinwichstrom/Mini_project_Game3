@@ -5,7 +5,6 @@ public class FinalGame {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);         // Declare scanner object named "in".
-        Random rand = new Random();                  // Declare random object
         Location location[] = new Location[11];      // Declare an array of Location objects
 
         /**
@@ -85,38 +84,35 @@ public class FinalGame {
              * The break statement tells Java to break out of the switch, and continue on in the program.
              */
             switch (input) {
-
                 case 0:
-                    System.out.println("Library");
-                    int random = rand.nextInt(location[input].getQuestions().length);
-                    System.out.println(location[input].getQuestion());     // Calls the location object library and gets
+                    location[input].answerRoomQuestion();
                     break;
                 case 1:
-                    System.out.println("Student house");
+                    location[input].answerRoomQuestion();
                     break;
                 case 2:
-                    System.out.println("RUC bar");
+                    location[input].answerRoomQuestion();
                     break;
                 case 3:
-                    System.out.println("Canteen");
+                    location[input].answerRoomQuestion();
                     break;
                 case 4:
-                    System.out.println("HumTek house");
+                    location[input].answerRoomQuestion();
                     break;
                 case 5:
-                    System.out.println("FabLab");
+                    location[input].answerRoomQuestion();
                     break;
                 case 6:
-                    System.out.println("SamBas house");
+                    location[input].answerRoomQuestion();
                     break;
                 case 8:
-                    System.out.println("Solar pavilion");
+                    location[input].answerRoomQuestion();
                     break;
                 case 9:
-                    System.out.println("The big auditorium");
+                    location[input].answerRoomQuestion();
                     break;
                 case 10:
-                    System.out.println("The small auditorium");
+                    location[input].answerRoomQuestion();
                     break;
             }
 
