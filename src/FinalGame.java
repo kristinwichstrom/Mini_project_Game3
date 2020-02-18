@@ -76,7 +76,7 @@ public class FinalGame {
              * The catch statement catches this exception if it's thrown. If exception is thrown, the println is printed.
              */
 
-            // Input is set to -1, if the user writes an invalid character the if sentence will not catch it as an valid input
+            // Input is set to -1, if the user writes an invalid character the if sentence will not catch it as an valid input..
             int input = -1;
 
             try {
