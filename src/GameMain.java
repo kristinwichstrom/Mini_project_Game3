@@ -1,4 +1,4 @@
-import java.util.Enumeration;
+
 import java.util.Random;  // Import Random
 import java.util.Scanner;  //Import Scanner
 
@@ -115,7 +115,6 @@ if (health < 1)    {
            System.out.println("You exit the dungeon, successful adventures");
            break;
        }
-       
         }
         System.out.println("Thanks for playing!");
         }
